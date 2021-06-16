@@ -13,25 +13,6 @@
 
     <link rel="stylesheet" href="./css/index.css">
     <title>大圣归来</title>
-    <script>
-        function connectWebViewJavascriptBridge(callback) {
-            if (window.WebViewJavascriptBridge) {
-                callback(window.WebViewJavascriptBridge);
-            } else {
-                document.addEventListener(
-                    "WebViewJavascriptBridgeReady",
-                    function () {
-                        callback(window.WebViewJavascriptBridge);
-                    },
-                    false
-                );
-            }
-        }
-        connectWebViewJavascriptBridge(function (bridge) {
-            bridge.init();
-            bridge.registerHandler("functionInJs");
-        });
-    </script>
 </head>
 
 <body>
@@ -64,7 +45,7 @@
                         </div>
                     </div>
                     <div class="shop-item">
-                        <div onclick="goNFTDetail(274)" style="cursor:pointer;">
+                        <div onclick="goNFTDetail(448)" style="cursor:pointer;">
                             <img src="./imgs/004.png" alt="">
                             <div class="item-name">
                                 <div class="name">《大圣归来》江流儿2江流儿2江流儿2</div>
@@ -73,7 +54,7 @@
                         </div>
                     </div>
                     <div class="shop-item">
-                        <div onclick="goNFTDetail(274)" style="cursor:pointer;">
+                        <div onclick="goNFTDetail(449)" style="cursor:pointer;">
                             <img src="./imgs/001.png" alt="">
                             <div class="item-name">
                                 <div class="name">《大圣归来》江流儿2</div>
@@ -172,7 +153,7 @@
 
     function goNFTDetail(id) {
         if (os == "AndroidOS") {
-            window.WebViewJavascriptBridge.callHandler("NftDetail", id);
+            window.jsMethod.NftDetail(id);
         } else if (os == "iOS"){
             window.webkit.messageHandlers["NftDetail"].postMessage(id);
         }
@@ -180,7 +161,7 @@
 
     function goMysteryBoxDetail(id) {
         if (os == "AndroidOS") {
-            window.WebViewJavascriptBridge.callHandler("MysteryBoxDetail", id);
+            window.jsMethod.MysteryBoxDetail(id);
         } else if (os == "iOS"){
             window.webkit.messageHandlers["MysteryBoxDetail"].postMessage(id);
         }
