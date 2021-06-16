@@ -1,0 +1,149 @@
+main {
+    width: 750px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    position: relative;
+    -webkit-overflow-scrolling:touch;
+}
+.bg-layer {
+    position: relative;
+    padding-top: 350px;
+}
+.bg-layer img {
+    width: 100%;
+    display: block;
+}
+.bg-layer .banner {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.content-layer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    top: 0;
+    padding: 393px 31px 0;
+    box-sizing: border-box;
+}
+.content-layer .part {
+    width: 100%;
+    position: relative;
+    margin-bottom: 80px;
+    z-index:1;
+}
+.video-container{
+    position:relative;
+}
+.play{
+    position:absolute;
+    z-index:10;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:60px;
+    height:60px;
+}
+.content-layer .part .title {
+    position: absolute;
+    z-index: 20;
+    left:-20px;
+    top: -67px;
+}
+.content-layer .first .title{
+    top:-80px;
+}
+.content-layer .first video {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius:8px;
+}
+.content-layer .second .shop-item {
+    background-image: url("../imgs/01.png");
+    background-size: 100% 100%;
+    width: 50%;
+    height: 261px;
+    padding: 15px 13px 14px 16px;
+}
+.content-layer .second .shop-item img {
+    width: 100%;
+    height: 158px;
+}
+.content-layer .second .shop-item .item-name {
+    padding:13px 12px;
+}
+.content-layer .second .shop-item .name {
+    font-size: 24px;
+    font-weight: 400;
+    color: #ec860b;
+    line-height:1;
+    margin:0 0 8px;
+    width:280px;
+    height: 22px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.content-layer .second .shop-item .price {
+    font-size: 20px;
+    color: #a75501;
+}
+.content-layer .third {
+    z-index:100;
+}
+.content-layer .third .content img{
+    width: 100%;
+}
+.content-layer .four .content{
+    position:relative;
+    background: url("../imgs/4bg.png");
+    background-size: 100% 100%;
+    width:100%;
+    height:344px;
+    padding:24px 4px 20px 18px;
+}
+.content-layer .four .content .arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:63px;
+    height:56px;
+    z-index:20;
+    outline: 0 none;
+}
+.content-layer .four .content .arrow-left{
+    left:-15px;
+}
+.content-layer .four .content .arrow-right{
+    right:-25px;
+}
+.swiper-container{
+    --swiper-theme-color: #712906;
+    --swiper-pagination-color: #ff8c06;/* 两种都可以 */
+    background-size:100% 100%;
+    width:100%;
+    height:100%;
+}
+.swiper-slide img{
+    width:664px;
+    height:300px;
+}
+.content-layer .four{
+    margin-top:330px;
+    z-index:3;
+}
+.four-title{
+    position: absolute;
+    top:-144%;
+    z-index:10;
+    left:-40px;
+}
+.four-title .title-text{
+    margin-top:80px;
+    margin-left:-20px;
+    width:410px;
+}

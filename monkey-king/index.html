@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+    <link rel="stylesheet" href="./css/flex.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="./css/index.css">
+    <title>大圣归来</title>
+</head>
+
+<body>
+    <main>
+        <section class="bg-layer">
+            <img src="./imgs/banner.png" class="banner" alt="">
+            <img src="./imgs/bg.png" class="bg" alt="">
+        </section>
+        <section class="content-layer">
+            <div class="part first">
+                <img class="title" src="./imgs/01title.png" alt="">
+                <div class="content">
+                    <div class="video-container">
+                        <video id="video" src="./mov/yugao.mp4" poster="./imgs/video_poster.png"></video>
+                        <img src="./imgs/play.png" alt="" class="play">
+                    </div>
+                </div>
+            </div>
+
+            <div class="part second">
+                <img class="title" src="./imgs/02title.png" alt="">
+                <div class="content frbs fww">
+                    <div class="shop-item">
+                        <a href="http://www.baidu.com">
+                            <img src="./imgs/001.png" alt="">
+                            <div class="item-name">
+                                <div class="name">《大圣归来》江流儿2</div>
+                                <div class="price">￥333</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="shop-item">
+                        <a href="http://www.baidu.com">
+                            <img src="./imgs/004.png" alt="">
+                            <div class="item-name">
+                                <div class="name">《大圣归来》江流儿2江流儿2江流儿2</div>
+                                <div class="price">￥333</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="shop-item">
+                        <a href="http://www.baidu.com">
+                            <img src="./imgs/001.png" alt="">
+                            <div class="item-name">
+                                <div class="name">《大圣归来》江流儿2</div>
+                                <div class="price">￥333</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="shop-item">
+                        <a href="http://www.baidu.com">
+                            <img src="./imgs/004.png" alt="">
+                            <div class="item-name">
+                                <div class="name">《大圣归来》江流儿2江流儿2江流儿2</div>
+                                <div class="price">￥333</div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="part third">
+                <img class="title" src="./imgs/03title.png" alt="">
+                <div class="content">
+
+                    <a href="http://www.baidu.com"><img src="./imgs/04txt.png" alt=""></a>
+                </div>
+            </div>
+            <div class="part four">
+                <div class="four-title frsc">
+                    <img src="./imgs/dasheng.png" alt="">
+                    <img src="./imgs/04txt2.png" class="title-text" alt="">
+                </div>
+                <div class="content">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="http://www.baidu.com">
+                                    <img src="./imgs/lunbo (1).png" alt="">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="http://www.baidu.com">
+                                    <img src="./imgs/lunbo (2).png" alt="">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="http://www.baidu.com">
+                                    <img src="./imgs/lunbo (3).png" alt="">
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="http://www.baidu.com">
+                                    <img src="./imgs/lunbo (4).png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <img class="arrow-right arrow" src="./imgs/arrow-right.png" alt="">
+                    <img class="arrow-left arrow" src="./imgs/arrow-left.png" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="./js/swiper-bundle.min.js"></script>
+<script>
+
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        navigation: {
+            nextEl: '.arrow-right',
+            prevEl: '.arrow-left',
+        },
+    });
+    const playBtn = document.querySelector('.play');
+    const video = document.querySelector('#video');
+    playBtn.addEventListener('click', function () {
+        video.play();
+        playBtn.style.display = 'none'
+
+    })
+    video.addEventListener('pause', function () {
+        playBtn.style.display = 'block'
+    })
+</script>
+
+</html>
