@@ -13,6 +13,25 @@
 
     <link rel="stylesheet" href="./css/index.css">
     <title>大圣归来</title>
+    <script>
+        function connectWebViewJavascriptBridge(callback) {
+            if (window.WebViewJavascriptBridge) {
+                callback(window.WebViewJavascriptBridge);
+            } else {
+                document.addEventListener(
+                    "WebViewJavascriptBridgeReady",
+                    function () {
+                        callback(window.WebViewJavascriptBridge);
+                    },
+                    false
+                );
+            }
+        }
+        connectWebViewJavascriptBridge(function (bridge) {
+            bridge.init();
+            bridge.registerHandler("functionInJs");
+        });
+    </script>
 </head>
 
 <body>
@@ -36,40 +55,40 @@
                 <img class="title" src="./imgs/02title.png" alt="">
                 <div class="content frbs fww">
                     <div class="shop-item">
-                        <a href="http://www.baidu.com">
+                        <div onclick="goNFTDetail(274)" style="cursor:pointer;">
                             <img src="./imgs/001.png" alt="">
                             <div class="item-name">
                                 <div class="name">《大圣归来》江流儿2</div>
                                 <div class="price">￥333</div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="shop-item">
-                        <a href="http://www.baidu.com">
+                        <div onclick="goNFTDetail(274)" style="cursor:pointer;">
                             <img src="./imgs/004.png" alt="">
                             <div class="item-name">
                                 <div class="name">《大圣归来》江流儿2江流儿2江流儿2</div>
                                 <div class="price">￥333</div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="shop-item">
-                        <a href="http://www.baidu.com">
+                        <div onclick="goNFTDetail(274)" style="cursor:pointer;">
                             <img src="./imgs/001.png" alt="">
                             <div class="item-name">
                                 <div class="name">《大圣归来》江流儿2</div>
                                 <div class="price">￥333</div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="shop-item">
-                        <a href="http://www.baidu.com">
+                        <div onclick="goNFTDetail(274)" style="cursor:pointer;">
                             <img src="./imgs/004.png" alt="">
                             <div class="item-name">
                                 <div class="name">《大圣归来》江流儿2江流儿2江流儿2</div>
                                 <div class="price">￥333</div>
                             </div>
-                        </a>
+                        </div>
 
                     </div>
                 </div>
@@ -78,7 +97,7 @@
                 <img class="title" src="./imgs/03title.png" alt="">
                 <div class="content">
 
-                    <a href="http://www.baidu.com"><img src="./imgs/04txt.png" alt=""></a>
+                    <div style="cursor:pointer;" onclick="goMysteryBoxDetail(48)"><img src="./imgs/04txt.png" alt=""></div>
                 </div>
             </div>
             <div class="part four">
@@ -120,6 +139,7 @@
     </main>
 </body>
 <script src="./js/swiper-bundle.min.js"></script>
+<script src="./js/detect.min.js"></script>
 <script>
 
     var swiper = new Swiper('.swiper-container', {
@@ -139,9 +159,33 @@
         playBtn.style.display = 'none'
 
     })
+
     video.addEventListener('pause', function () {
         playBtn.style.display = 'block'
     })
+
+    
+    let MobileDetect = window.MobileDetect;
+    var device_type = navigator.userAgent;
+    var md = new MobileDetect(device_type);
+    let os = md.os();
+
+    function goNFTDetail(id) {
+        if (os == "AndroidOS") {
+            window.WebViewJavascriptBridge.callHandler("NftDetail", id);
+        } else if (os == "iOS"){
+            window.webkit.messageHandlers["NftDetail"].postMessage(id);
+        }
+    }
+
+    function goMysteryBoxDetail(id) {
+        if (os == "AndroidOS") {
+            window.WebViewJavascriptBridge.callHandler("MysteryBoxDetail", id);
+        } else if (os == "iOS"){
+            window.webkit.messageHandlers["MysteryBoxDetail"].postMessage(id);
+        }
+    }    
+
 </script>
 
 </html>
